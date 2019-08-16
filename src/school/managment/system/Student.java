@@ -21,7 +21,49 @@ public class Student {
         this.grade = grade;
 
     }
-    public void updateFeesPaid(int fees){
-        feesPaid = feesPaid + fees;
+    public void payFees(int fees){
+        feesPaid += fees;
+        School.updateTotalMoneyEarned(feesPaid);
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public int getFeesPaid() {
+        return feesPaid;
+    }
+
+    public int getFeesTotal() {
+        return feesTotal;
+    }
+    public int getRemainingFees(){
+        return feesTotal - feesPaid;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", grade=" + grade +
+                ", feesPaid=" + feesPaid +
+                ", feesTotal=" + feesTotal + " left to pay " + getRemainingFees() +
+                '}';
     }
 }
